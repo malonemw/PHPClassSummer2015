@@ -14,9 +14,9 @@
            ?>
         
         <table border="1">
-        <?php for($tr = 1; $tr <= 3; $tr++):?>
+        <?php for($tr = 1; $tr <= rand(1,10); $tr++):?>
             <tr>
-                <?php for($td = 1; $td <= 3; $td++): ?>
+                <?php for($td = 1; $td <= rand(1,10); $td++): ?>
                 <td> <?php echo $td; ?>
                 </td>
                 <?php endfor; ?>
