@@ -5,6 +5,12 @@
         <title></title>
     </head>
     <body>
+        <?php
+        
+        $dataoneVal = $_POST[''];
+        
+        ?>
+        
         <form method="post" action="#">
             
             Data one <input type="text" value="" name="dataone" />
