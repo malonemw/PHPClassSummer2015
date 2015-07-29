@@ -5,16 +5,8 @@
         <title></title>
     </head>
     <body>
-        <?php
-        
-        $dataoneVal = filter_input(INPUT_POST, 'dataone');
-        $datatwoVal = filter_input (INPUT_POST, 'datatwo');
-        echo $dataoneVal;
-        echo $datatwoVal;
-        
-        ?>
-        
-        <form method="post" action="post-process.php">
+               
+        <form method="post" action="#">
             
             Data one <input type="text" value="" name="dataone" />
             <br />
