@@ -7,26 +7,30 @@
     <body>
         <?php
             include './dbconnect.php';
+            include './functions.php';
             
+            $results = '';            
+            
+            if (isPostRequest()) {
+
             $db = getDB();
-            
+
             $stmt = $db->prepare("INSERT INTO test SET dataone = :dataone, datatwo = :datatwo");
-        
+
             $dataone = filter_input(INPUT_POST, 'dataone');
             $datatwo = filter_input(INPUT_POST, 'datatwo');
-        
-            $binds = array( 
+
+            $binds = array(
                 ":dataone" => $dataone,
                 ":datatwo" => $datatwo
-                    );
-            
+            );
+
             $results = array();
-            if ( $stmt->execute($binds) && $stmt->rowCount() > 0 ) {
-                $results = $stmt->fetch(PDO::FETCH_ASSOC);   
+            if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+                //$results = $stmt->fetch(PDO::FETCH_ASSOC);   
                 $results = 'Data Added';
             }
-            
-            
+            }
         ?>
         
          
