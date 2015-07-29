@@ -11,8 +11,16 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+        
+        $key = 'test';
+        //echo sha1($key);
+        
         $id = filter_input(INPUT_GET, 'id');
         echo $id;
+        
+        if($id === sha1($key)){
+            echo 'Key entered';
+        }
         ?>
     </body>
 </html>
