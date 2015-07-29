@@ -8,12 +8,12 @@
         <?php
             include './dbconnect.php';
             
-            $db = getDatabase();
+            $db = getDB();
             
             $stmt = $db->prepare("INSERT INTO test SET dataone = :dataone, datatwo = :datatwo");
         
-            $dataone = filter_input(INPUT_POST, '');
-            $datatwo = filter_input(INPUT_POST, '');
+            $dataone = filter_input(INPUT_POST, 'dataone');
+            $datatwo = filter_input(INPUT_POST, 'datatwo');
         
             $binds = array( 
                 ":dataone" => $dataone,
@@ -22,14 +22,15 @@
             
             $results = array();
             if ( $stmt->execute($binds) && $stmt->rowCount() > 0 ) {
-                $results = $stmt->fetch(PDO::FETCH_ASSOC);                       
+                $results = $stmt->fetch(PDO::FETCH_ASSOC);   
+                $results = 'Data Added';
             }
             
             
         ?>
         
          
- 
+        <h1> <?php echo $results; ?> </h1>
 
         
         <?php foreach($results as $row): ?>
