@@ -17,7 +17,7 @@
             $results = array();
             
             if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
-                $results = $stmt->fetch(PDO::FETCH_ASSOC);   
+                $results = $stmt->fetchall(PDO::FETCH_ASSOC);   
             }
                 
         ?>

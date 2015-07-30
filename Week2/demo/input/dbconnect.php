@@ -12,3 +12,4 @@ function getDB(){
     
     return $db;
 }
+?>
