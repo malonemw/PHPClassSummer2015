@@ -11,7 +11,7 @@
         $results = '';
         if (isPostRequest()) {
             $db = getDatabase();
-            $stmt = $db->prepare("INSERT INTO test SET firstName = :firstName, lastName = :lastName, dob = :dob, height = :height");
+            $stmt = $db->prepare("INSERT INTO actors SET firstName = :firstName, lastName = :lastName, dob = :dob, height = :height");
             $firstName = filter_input(INPUT_POST, 'firstName');
             $lastName = filter_input(INPUT_POST, 'lastName');
             $dob = filter_input(INPUT_POST, 'dob');
