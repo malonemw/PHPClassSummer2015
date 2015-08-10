@@ -13,7 +13,7 @@
             
            $db = dbconnect();
            
-           $stmt = $db->prepare("SELECT * FROM test where id = :id");
+           $stmt = $db->prepare("SELECT * FROM corps where id = :id");
            
            $binds = array(
                 ":id" => $id
@@ -29,16 +29,12 @@
         <table border="1">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Data One</th>
-                    <th>Data Two</th>
+                    <th>Company Name</th>                    
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><?php echo $result['id']; ?></td>
-                    <td><?php echo $result['dataone']; ?></td>
-                    <td><?php echo $result['datatwo']; ?></td>            
+                    <td><?php echo $result['corp']; ?></td>                   
                 </tr>
             </tbody>
         </table>
