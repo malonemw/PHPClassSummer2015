@@ -13,6 +13,7 @@
             
            $db = dbconnect();
            
+          // $stmt = $db->prepare("SELECT * FROM corps");
            $stmt = $db->prepare("SELECT * FROM corps where id = :id");
            
            $binds = array(
@@ -23,6 +24,7 @@
             if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
             }
+            
         ?>
         
         <?php if ( count($result) > 0 ) : ?>
@@ -33,9 +35,16 @@
                 </tr>
             </thead>
             <tbody>
+                 <?php foreach ($results as $row): ?>
                 <tr>
-                    <td><?php echo $result['corps']; ?></td>                   
+                    <td><?php echo $row['corp']; ?></td>
+                    <td><?php echo 'Read';?></td>
+                    <td><?php echo 'Update'; ?></td> 
+                    //add links
+                    <td><?php echo 'Delete';?></td>               
                 </tr>
+               
+            <?php endforeach; ?>
             </tbody>
         </table>
         
