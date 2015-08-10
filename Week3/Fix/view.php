@@ -13,12 +13,11 @@
             
            $db = dbconnect();
            
-           $stmt = $db->prepare("SELECT * FROM corps");
-          // $stmt = $db->prepare("SELECT * FROM corps where id = :id");
+           $stmt = $db->prepare("SELECT * FROM corps where id = :id");
            
-           //$binds = array(
-           //     ":id" => $id
-            //);
+           $binds = array(
+                ":id" => $id
+            );
            
             $result = array();
             if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
