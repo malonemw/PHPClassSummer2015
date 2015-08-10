@@ -1,10 +1,10 @@
 <?php
 function dbconnect() {
- //   $config = array(
-   //     'DB_DNS' => 'mysql:host=localhost;port=3306;dbname=PHPClassSummer2015',
-     //   'DB_USER' => 'php',
-       // 'DB_PASSWORD' => 'summer15'
-   // );
+    $config = array(
+        'DB_DNS' => 'mysql:host=localhost;port=3306;dbname=phpclasssummer2015',
+        'DB_USER' => 'php',
+        'DB_PASSWORD' => 'summer15'
+    );
     try
 {
   $db = new PDO('mysql:host=localhost;dbname=phpclasssummer2015', 'root', '');
