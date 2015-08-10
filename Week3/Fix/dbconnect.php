@@ -7,7 +7,7 @@ function dbconnect() {
    // );
     try
 {
-  $db = new PDO('mysql:host=localhost;dbname=PHPClassSummer2015', 'php', 'summer15');
+  $db = new PDO('mysql:host=localhost;dbname=phpclasssummer2015', 'root', '');
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $db->exec('SET NAMES "utf8"');
 }
@@ -18,6 +18,6 @@ catch (PDOException $e)
   exit();
 }
     
-    return $db;    
+  return $db;    
 }
 ?>
