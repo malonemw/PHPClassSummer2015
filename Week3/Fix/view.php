@@ -13,11 +13,12 @@
             
            $db = dbconnect();
            
-           $stmt = $db->prepare("SELECT * FROM test where id = :id");
+           $stmt = $db->prepare("SELECT * FROM corps");
+          // $stmt = $db->prepare("SELECT * FROM corps where id = :id");
            
-           $binds = array(
-                ":id" => $id
-            );
+           //$binds = array(
+           //     ":id" => $id
+            //);
            
             $result = array();
             if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
@@ -34,7 +35,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><?php echo $result['test']; ?></td>                   
+                    <td><?php echo $result['corps']; ?></td>                   
                 </tr>
             </tbody>
         </table>
