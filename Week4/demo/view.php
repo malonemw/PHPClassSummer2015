@@ -12,6 +12,7 @@
            
            
            $results = getAllTestData();
+           $results = searchTest('dataone', 'hello');
            
             
         ?>
