@@ -22,9 +22,9 @@ and open the template in the editor.
             echo 'submitted form2';
         }
         
-        include './forms/form1.php';
-        include './forms/form2.php';
-        include './forms/form3.php';
+        include './includes/form1.php';
+        include './includes/form2.php';
+        include './includes/form3.php';
         
        if (isset($_POST['submit1']))
            echo 'Form One was Successfully Submitted';
