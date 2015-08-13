@@ -8,6 +8,7 @@
         <?php
         
             include_once './dbconnect.php';
+            include './functions.php';
 
             $corp = filter_input(INPUT_POST, 'corp');
             $incorp_dt = filter_input(INPUT_POST, 'incorp_dt');

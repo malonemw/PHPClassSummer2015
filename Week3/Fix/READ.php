@@ -10,6 +10,7 @@
         $id = filter_input(INPUT_GET, 'id');
         
         include './dbconnect.php';
+        include './functions.php';
             
            $db = dbconnect();
            

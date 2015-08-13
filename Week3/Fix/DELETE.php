@@ -8,6 +8,7 @@
         <?php
             
         include_once './dbconnect.php';
+        include './functions.php';
         
         $id = filter_input(INPUT_GET, 'id');
         
