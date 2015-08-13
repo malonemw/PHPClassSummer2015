@@ -7,22 +7,22 @@
     <body>
         <?php
                 
-        $id = filter_input(INPUT_GET, 'id');
+        //$id = filter_input(INPUT_GET, 'id');
         
-        include_once './dbconnect.php';
+        include './dbconnect.php';
             
            $db = dbconnect();
            
           // $stmt = $db->prepare("SELECT * FROM corps");
-           $stmt = $db->prepare("SELECT * FROM corps where id = :id");
+           $stmt = $db->prepare("SELECT * FROM corps");
            
-           $binds = array(
-                ":id" => $id
-            );
+           //$binds = array(
+             //   ":id" => $id
+            //);
            
             $result = array();
-            if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
-                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($stmt->execute() && $stmt->rowCount() > 0) {
+                $result = $stmt->fetchALL(PDO::FETCH_ASSOC);
             }
             
         ?>
@@ -35,12 +35,11 @@
                 </tr>
             </thead>
             <tbody>
-                 <?php foreach ($results as $row): ?>
+                <?php foreach ($result as $row): ?>
                 <tr>
                     <td><?php echo $row['corp']; ?></td>
                     <td><?php echo 'Read';?></td>
                     <td><?php echo 'Update'; ?></td> 
-                    //add links
                     <td><?php echo 'Delete';?></td>               
                 </tr>
                
