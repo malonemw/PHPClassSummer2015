@@ -8,7 +8,7 @@
         <?php
         
             include_once './dbconnect.php';
-        
+
             $corp = filter_input(INPUT_POST, 'corp');
             $incorp_dt = filter_input(INPUT_POST, 'incorp_dt');
             $email = filter_input(INPUT_POST, 'email');
@@ -31,7 +31,7 @@
             if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
                  $result = 'Data was added';
             }
-        
+                      
         ?>
         
         <h1>
