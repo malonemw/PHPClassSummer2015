@@ -6,11 +6,11 @@
     </head>
     <body>
         <?php
-                
-        $id = filter_input(INPUT_GET, 'id');
-        
+                        
         include './dbconnect.php';
         include './functions.php';
+        
+        $id = filter_input(INPUT_GET, 'id');
             
            $db = dbconnect();
            
