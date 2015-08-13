@@ -40,7 +40,7 @@
                     <th>Company Name</th>
                     <th></th>
                     <th></th>
-                    <th></th>              
+                    <th><a href="dbINSERT.php"> Create New Company </a></th>              
                 </tr>
             </thead>
             <tbody>
