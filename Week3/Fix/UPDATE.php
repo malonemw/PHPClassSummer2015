@@ -22,7 +22,7 @@
         <h1>Update Company Info</h1>
         
             <form method="post" action="#">            
-            Company: <input type="text" name="corp" value="<?php echo $dataone ?>" />
+            Company: <input type="text" name="corp" value="<?php echo $corp ?>" />
             <br />
             Email: <input type="email" name="email" value="<?php echo $email ?>" />
             <br />

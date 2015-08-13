@@ -38,9 +38,9 @@
                 <?php foreach ($result as $row): ?>
                 <tr>
                     <td><?php echo $row['corp']; ?></td>
-                    <td><?php echo 'Read';?></td>
-                    <td><?php echo 'Update'; ?></td> 
-                    <td><?php echo 'Delete';?></td>               
+                    <td><a href="<?php echo './READ.php'; ?>"> Read </a></td>
+                    <td><a href="<?php echo './UPDATE.php'; ?>"> Update </a></td> 
+                    <td><a href="<?php echo './DELETE.php'; ?>"> Delete </a></td>               
                 </tr>
                
             <?php endforeach; ?>
