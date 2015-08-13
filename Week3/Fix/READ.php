@@ -44,9 +44,9 @@
         <table border="1">
             <tbody>
                 <tr>
-                    <td><?php echo 'View All';?></td>
-                    <td><?php echo 'Update'; ?></td> 
-                    <td><?php echo 'Delete';?></td>               
+                    <td><td><a href="view.php"> View All </a></td>
+                    <td><a href="UPDATE.php?id=<?php echo $row['id']; ?>"> Update </a></td> 
+                    <td><a href="DELETE.php?id=<?php echo $row['id']; ?>"> Delete </a></td>          
                 </tr>
             </tbody>
         </table>

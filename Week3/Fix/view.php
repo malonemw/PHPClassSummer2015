@@ -3,6 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     </head>
     <body>
         <?php
@@ -29,17 +34,20 @@
         ?>
         
         <?php if ( count($result) > 0 ) : ?>
-        <table border="1">
+        <table border="1" class="table table-hover">
             <thead>
                 <tr>
-                    <th>Company Name</th>                    
+                    <th>Company Name</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>              
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($result as $row): ?>
                 <tr>
                     <td><?php echo $row['corp']; ?></td>
-                    <td><a href="READ.php?id=<?php echo $row['id']; ?>"> Read </a></td>
+                    <td><a class="btn btn-info" href="READ.php?id=<?php echo $row['id']; ?>"> Read </a></td>
                     <td><a href="UPDATE.php?id=<?php echo $row['id']; ?>"> Update </a></td> 
                     <td><a href="DELETE.php?id=<?php echo $row['id']; ?>"> Delete </a></td>               
                 </tr>
