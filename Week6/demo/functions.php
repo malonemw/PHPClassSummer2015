@@ -11,7 +11,17 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        // put your code here
+        
+        isLoggedin(){
+        if ( isset($_SESSION['loggedin']) ||
+        $_SESSION['loggedin'] === false ) 
+        
+            {
+            return false;
+            }
+            else 
+                return true;
+        }
         ?>
     </body>
 </html>
