@@ -30,3 +30,15 @@ function createCategory($value) {
             }
             return true;
         }
+        
+        function getAllCategories() {
+    $db = dbconnect();
+    $stmt = $db->prepare("SELECT * FROM categories");
+    $results = array();
+    if ($stmt->execute() && $stmt->rowCount() > 0) {
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+     
+    return $results;
+    
+}

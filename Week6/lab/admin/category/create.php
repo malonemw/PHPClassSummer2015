@@ -8,14 +8,14 @@
         <?php
         include_once '../../functions/category-functions.php';
         include_once '../../functions/dbconnect.php';
-        //include_once '../../fuctions/until.php';
+        include_once '../../functions/until.php';
         
-        //$results = '';
+        $results = '';
         
         if (isPostRequest() ){
             $category = filter_input(INPUT_POST, 'category');
             
-            if (isValidCategory($category)/*=== true*/){
+            if (isValidCategory($category)){
             
                 if( createCategory($category)){
                     $results = 'Category added';
@@ -32,13 +32,14 @@
         
         ?>
         
+        
         <h1>Add Category</h1>
         
         <?php if ( isset($results)) :?>
         <h2><?php echo $results;?></h2>
         <?php endif; ?>
         
-        <h1>Add Category</h1>
+        
         <form method="post" action="#">
             Category Name : <input type="text" name="category" value="" />
             <input type="submit" value="Submit" />
