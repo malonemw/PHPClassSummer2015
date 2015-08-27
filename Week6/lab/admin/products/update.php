@@ -18,7 +18,7 @@
             
            $db = dbconnect();
            
-           $stmt = $db->prepare("SELECT * FROM categories where product_id = :product_id");
+           $stmt = $db->prepare("SELECT * FROM products where product_id = :product_id");
            
            $binds = array(
                 ":product_id" => $product_id
@@ -50,8 +50,12 @@
             Image: <input type="image" name="image" value="<?php echo $image['image'] ?>"/>
             <br />
             
-            <!-- for each category, pull category id; input category id -->
-            Category: <select> value="<?php echo $category_id['image'] ?>"/>
+            <!-- for each category, pull category id; input category (JOIN TABLES) -->
+            Category: <select name="category">
+            <?php foreach ($category_id as $row): ?>
+                <option value="<?php echo $row['category_id']; ?>"><?php echo $row['category']; ?></option>
+            <?php endforeach; ?>
+            </select>
             <br />
             <input type="hidden" name="product_id" value="<?php echo $product_id ?>" />
             <input type="submit" value="Submit" />
