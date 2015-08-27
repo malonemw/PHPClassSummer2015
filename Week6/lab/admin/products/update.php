@@ -14,14 +14,14 @@
             include_once '../../functions/until.php';
             
             
-           $id = filter_input(INPUT_GET, 'category_id');
+           $id = filter_input(INPUT_GET, 'product_id');
             
            $db = dbconnect();
            
-           $stmt = $db->prepare("SELECT * FROM categories where category_id = :category_id");
+           $stmt = $db->prepare("SELECT * FROM categories where product_id = :product_id");
            
            $binds = array(
-                ":category_id" => $category_id
+                ":product_id" => $product_id
             );
            
             $pullArray = array();
@@ -31,6 +31,7 @@
            
             
             if (isPostRequest()){
+            $product_id = filter_input(INPUT_POST, 'product_id');
             $category_id = filter_input(INPUT_POST, 'category_id');
             $product = filter_input(INPUT_POST, 'product');
             $price = filter_input(INPUT_POST, 'price');
@@ -42,13 +43,17 @@
         <h1>Update Product</h1>
         
             <form method="post" action="#">            
-                Company: <input type="text" name="product" value="<?php echo $product['product'] ?>" />
+                Product: <input type="text" name="product" value="<?php echo $product['product'] ?>" />
             <br />
-            Email: <input type="email" name="price" value="<?php echo $price['price'] ?>"/>
+            Price: <input type="text" name="price" value="<?php echo $price['price'] ?>"/>
             <br />
             Image: <input type="image" name="image" value="<?php echo $image['image'] ?>"/>
             <br />
-            <input type="hidden" name="category_id" value="<?php echo $category_id ?>" />
+            
+            <!-- for each category, pull category id; input category id -->
+            Category: <select> value="<?php echo $category_id['image'] ?>"/>
+            <br />
+            <input type="hidden" name="product_id" value="<?php echo $product_id ?>" />
             <input type="submit" value="Submit" />
             <input type="hidden" name="action" value="submit"/>
         </form>
@@ -59,9 +64,10 @@
         
         if ($action === 'submit'){
                 
-            $stmt = $db->prepare("UPDATE categories SET product = :product, price = :price, image = :image WHERE category_id = :category_id");
+            $stmt = $db->prepare("UPDATE categories SET product = :product, price = :price, image = :image, category_id = :category_id WHERE product_id = :product_id");
             $binds = array(
                 ":category_id" => $category_id,
+                ":product_id" => $product_id,
                  ":product" => $product,                 
                  ":price" => $price,                   
                  ":image" => $image                  
