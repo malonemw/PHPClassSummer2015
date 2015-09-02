@@ -11,6 +11,7 @@
         ?>
         
         <p><a href="create.php">Create</a></p>
+        foreach row as rows
         <p><a href="update.php">Update</a></p>
         <p><a href="delete.php">Delete</a></p>
     </body>
