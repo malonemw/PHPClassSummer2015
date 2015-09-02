@@ -37,11 +37,11 @@
             if ( !isValidPrice($price) ) {
                 $errors[] = 'Price is not Valid';
             }
-                        
+                //return a string '' instead of bool        
             if ( false === $image ) {
                 $errors[] = 'image could not be uploaded';
             }
-            
+            // want to check for correct files before uploading image
             if ( count($errors) == 0 ) {
                 
                 if ( createProduct($category_id, $product, $price, $image ) ) {
