@@ -65,7 +65,7 @@ function isValidPrice($value) {
 }
 function uploadProductImage() {
     
-    $imageName = false;
+    $imageName = '';
     
     try {
         // Undefined | Multiple Files | $_FILES Corruption Attack
