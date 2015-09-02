@@ -27,6 +27,10 @@
             }
             if(!isValidPrice($price)){
                 $errors[] = 'Price is not Valid';
+            }            
+                //return a string '' instead of bool        
+            if ( false === $image ) {
+                $errors[] = 'image could not be uploaded';
             }
             if (count ($errors) == 0){
                 if (createProduct($category_id, $product, $price, $image)){
