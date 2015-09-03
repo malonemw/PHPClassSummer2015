@@ -37,8 +37,10 @@
         
         <?php include '../includes/results.html.php'; ?>
         
-        
-        <?php include '../includes/loginform.html.php'; ?>
+        <?php
+        if ( !isset($_SESSION['isValidUser']) &&  $_SESSION['isValidUser'] !== true ) {
+         include '../includes/loginform.html.php'; 
+        }?>
         
     </body>
 </html>
