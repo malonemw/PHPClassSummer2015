@@ -28,7 +28,7 @@
                 ":category_id" => $category_id,
                 );
            
-            $pullArray = array();
+            $categories = array();
             if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
                 $pullArray = $stmt->fetch(PDO::FETCH_ASSOC);
             }

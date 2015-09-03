@@ -17,7 +17,7 @@
         
         $db = dbconnect();
            
-        $stmt = $db->prepare("DELETE FROM products where product_id = :product_id");
+        $stmt = $db->prepare("DELETE FROM products WHERE product_id = :product_id");
            
         $binds = array(
              ":product_id" => $product_id

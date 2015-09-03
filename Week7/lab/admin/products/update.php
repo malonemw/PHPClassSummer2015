@@ -25,9 +25,9 @@
                 ":product_id" => $product_id
             );
            
-            $pullArray = array();
+            $products = array();
             if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
-                $pullArray = $stmt->fetch(PDO::FETCH_ASSOC);
+                $products = $stmt->fetch(PDO::FETCH_ASSOC);
             }
            
             
@@ -44,11 +44,11 @@
         <h1>Update Product</h1>
         
             <form method="post" action="#">            
-                Product: <input type="text" name="product" value="<?php echo $product['product'] ?>" />
+                Product: <input type="text" name="product" value="<?php echo $products['product'] ?>" />
             <br />
-            Price: <input type="text" name="price" value="<?php echo $price['price'] ?>"/>
+            Price: <input type="text" name="price" value="<?php echo $products['price'] ?>"/>
             <br />
-            Image: <input type="image" name="image" value="<?php echo $image['image'] ?>"/>
+            Image: <input type="image" name="image" value="<?php echo $products['image'] ?>"/>
             <br />
             
             <!-- for each category, pull category id; input category (JOIN TABLES) -->
