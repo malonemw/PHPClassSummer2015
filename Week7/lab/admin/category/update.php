@@ -15,10 +15,8 @@
             include_once '../../functions/products-functions.php';
             include_once '../../functions/until.php';
             
-            $category = "";
-            $category_id ="";
             
-           $category_id = filter_input(INPUT_GET, 'category_id');
+           $category_id = filter_input(INPUT_GET, 'id');
             
            $db = dbconnect();
            
@@ -41,14 +39,6 @@
             
            ?>
         
-        <h1>Update Category</h1>
-        
-            <form method="post" action="#">            
-                Category: <input type="text" name="category" value="<?php echo $category?>" />
-            <br />
-            </form>
-               
-        
         <?php    
         $action = filter_input(INPUT_POST, 'action');
         
@@ -68,6 +58,18 @@
         ?>
         
         <?php include '../../includes/results.html.php'; ?>
+        
+        <h1>Update Category</h1>
+        
+            <form method="post" action="#">            
+                Category: <input type="text" name="category" value="<?php echo $category ?>" />
+            <br />     
+            <input type="submit" value="Submit" />
+            <input type="hidden" name="action" value="submit"/>
+            </form>
+               
+        
+        
         
         <a href="./index.php"> Back to View All Categories </a>
                 

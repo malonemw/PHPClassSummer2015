@@ -15,11 +15,12 @@
             include_once '../../functions/until.php';
             
             
-           $id = filter_input(INPUT_GET, 'product_id');
+           $product_id = filter_input(INPUT_GET, 'id');
             
            $db = dbconnect();
            
-           $stmt = $db->prepare("SELECT * FROM products JOIN categories WHERE categories.category_id = products.category_id AND product_id = :product_id");
+           
+           $stmt = $db->prepare("SELECT * FROM products JOIN categories ON categories.category_id = products.category_id WHERE product_id = :product_id");
            
            $binds = array(
                 ":product_id" => $product_id
@@ -41,29 +42,6 @@
             
            ?>
         
-        <h1>Update Product</h1>
-        
-            <form method="post" action="#">            
-                Product: <input type="text" name="product" value="<?php echo $products['product'] ?>" />
-            <br />
-            Price: <input type="text" name="price" value="<?php echo $products['price'] ?>"/>
-            <br />
-            Image: <input type="image" name="image" value="<?php echo $products['image'] ?>"/>
-            <br />
-            
-            <!-- for each category, pull category id; input category (JOIN TABLES) -->
-            Category: <select name="category">
-            <?php foreach ($category_id as $row): ?>
-                <option value="<?php echo $row['category_id']; ?>"><?php echo $row['category']; ?></option>
-            <?php endforeach; ?>
-            </select>
-            <br />
-            <input type="hidden" name="product_id" value="<?php echo $product_id ?>" />
-            <input type="submit" value="Submit" />
-            <input type="hidden" name="action" value="submit"/>
-        </form>
-        
-        
         <?php    
         $action = filter_input(INPUT_POST, 'action');
         
@@ -84,6 +62,31 @@
         }
 
         ?>
+        
+        <h1>Update Product</h1>
+        
+            <form method="post" action="#">            
+                Product: <input type="text" name="product" value="<?php echo $products ['product'] ?>" />
+            <br />
+            Price: <input type="text" name="price" value="<?php echo $products['price'] ?>"/>
+            <br />
+            <?php echo $products['image'] ?>
+            <br />
+            
+            <!-- for each category, pull category id; input category (JOIN TABLES) -->
+            Category: <select name="category">
+            <?php foreach ($category_id as $row): ?>
+                <option value="<?php echo $row['category_id']; ?>"><?php echo $row['category']; ?></option>
+            <?php endforeach; ?>
+            </select>
+            <br />
+            <input type="hidden" name="product_id" value="<?php echo $product_id ?>" />
+            <input type="submit" value="Submit" />
+            <input type="hidden" name="action" value="submit"/>
+        </form>
+        
+        
+        
         
         <h1>
         <?php if ( !empty($result) ) {

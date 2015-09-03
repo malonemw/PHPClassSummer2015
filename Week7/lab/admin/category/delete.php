@@ -13,7 +13,7 @@
         include_once '../../functions/dbconnect.php';
         include_once '../../functions/until.php';
         
-        $category_id = filter_input(INPUT_GET, 'category_id');
+        $category_id = filter_input(INPUT_GET, 'id');
         
         $db = dbconnect();
            
@@ -26,8 +26,7 @@
         $isDeleted = false;
         if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
             $isDeleted = true;
-        }         
-        
+        }        
         ?>
         
         <h1> Record <?php echo $category_id; ?> Has 

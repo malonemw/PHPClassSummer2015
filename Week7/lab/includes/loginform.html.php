@@ -1,5 +1,3 @@
-<?php 
-if ( isset($_SESSION['isValidUser']) &&  $_SESSION['isValidUser'] === false ): ?>
 <form method="post" action="#">  
     Email : <input name="email" type="text" value="" />
     <br />
@@ -7,6 +5,3 @@ if ( isset($_SESSION['isValidUser']) &&  $_SESSION['isValidUser'] === false ): ?
     <br />
     <input type="submit" value="submit" />    
 </form>
-<?php
-
-endif; ?>

@@ -13,7 +13,7 @@
         include_once '../../functions/dbconnect.php';
         include_once '../../functions/until.php';
         
-        $product_id = filter_input(INPUT_GET, 'product_id');
+        $product_id = filter_input(INPUT_GET, 'id');
         
         $db = dbconnect();
            
