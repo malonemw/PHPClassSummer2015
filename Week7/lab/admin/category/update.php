@@ -41,7 +41,7 @@
             
            ?>
         
-        <h1>Update Product</h1>
+        <h1>Update Category</h1>
         
             <form method="post" action="#">            
                 Category: <input type="text" name="category" value="<?php echo $category?>" />

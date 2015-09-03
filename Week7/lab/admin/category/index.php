@@ -8,6 +8,19 @@
         <?php
             require_once '../../includes/session-start.req-inc.php';
             require_once '../../includes/access-required.html.php';
+            
+            include_once '../../functions/products-functions.php';           
+            include_once '../../functions/dbconnect.php';
+            include_once '../../functions/until.php';
+            
+            $db = dbconnect();
+             
+            $stmt = $db->prepare("SELECT * FROM categories");
+           
+            $result = array();
+            if ($stmt->execute() && $stmt->rowCount() > 0) {
+                $result = $stmt->fetchALL(PDO::FETCH_ASSOC);
+            }
         ?>
         
         <p><a href="create.php">Create</a></p>

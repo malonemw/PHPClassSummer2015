@@ -19,7 +19,7 @@
             
            $db = dbconnect();
            
-           $stmt = $db->prepare("SELECT * FROM products where product_id = :product_id");
+           $stmt = $db->prepare("SELECT * FROM products JOIN categories WHERE categories.category_id = products.category_id AND product_id = :product_id");
            
            $binds = array(
                 ":product_id" => $product_id
