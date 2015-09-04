@@ -29,7 +29,7 @@
         }        
         ?>
         
-        <h1> Record <?php echo $category_id; ?> Has 
+        <h1> Category "<?php echo $category_id; ?>" Has 
             <?php if ( !$isDeleted ): ?>Not<?php endif; ?> 
             Been Deleted
         </h1>

@@ -94,7 +94,7 @@
         } ?>
         </h1>
         
-        <a href="./view.php"> Back to View All </a>
+        <a href="./index.php"> Back to Products </a>
                 
         
     </body>

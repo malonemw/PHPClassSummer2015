@@ -13,6 +13,7 @@
             include_once '../functions/login-function.php';
             include_once '../functions/until.php';
         
+            
             if ( isPostRequest() ) {
                 
                 $email = filter_input(INPUT_POST, 'email');
@@ -30,17 +31,15 @@
             if ( isset($_SESSION['isValidUser']) &&  $_SESSION['isValidUser'] === true ) {
                 include '../includes/admin-links.html.php';
             }
+            else {
+                include '../includes/loginform.html.php'; 
+            }
         
          
             
         ?>
         
-        <?php include '../includes/results.html.php'; ?>
-        
-        <?php
-        if ( !isset($_SESSION['isValidUser']) &&  $_SESSION['isValidUser'] !== true ) {
-         include '../includes/loginform.html.php'; 
-        }?>
+        <?php include '../includes/results.html.php'; ?>        
         
     </body>
 </html>

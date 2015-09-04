@@ -47,7 +47,7 @@
             Category Name : <input type="text" name="category" value="" />
             <input type="submit" value="Submit" />
         </form>
-        
+        <a href="./index.php"> Back to Categories </a>
         
     </body>
 </html>

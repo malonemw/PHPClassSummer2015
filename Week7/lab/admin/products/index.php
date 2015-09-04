@@ -24,6 +24,7 @@
             //print_r($result);
         ?>
         
+        <h1>Products</h1>
         <p><a href="create.php">Create</a></p>
         <?php foreach ($result as $row): ?>
                 <tr>

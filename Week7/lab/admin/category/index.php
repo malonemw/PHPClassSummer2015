@@ -23,6 +23,7 @@
             }
         ?>
         
+        <h1>Categories</h1> 
         <p><a href="create.php">Create</a></p>
         <?php foreach ($result as $row): ?>
                 <tr>
