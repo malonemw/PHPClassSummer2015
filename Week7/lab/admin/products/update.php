@@ -19,16 +19,15 @@
            $categoriesdb = getAllCategories(); 
            $db = dbconnect();
            
+           
            if (isPostRequest()){
             $product_id = filter_input(INPUT_POST, 'product_id');
             $category_id = filter_input(INPUT_POST, 'category_id');
             $product = filter_input(INPUT_POST, 'product');
             $price = filter_input(INPUT_POST, 'price');
-            $image = filter_input(INPUT_POST, 'image');
+            $image = filter_input(INPUT_POST, sha1('image'));
             
-            
-            
-            
+                                 
                 
             $stmt = $db->prepare("UPDATE products SET product = :product, price = :price, image = :image, category_id = :category_id WHERE product_id = :product_id");
             $binds = array(
@@ -38,8 +37,7 @@
                  ":price" => $price,                   
                  ":image" => $image                  
              );
-            
-            
+                        
             $result = 'Data was not updated';
             if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
                 $result = 'Data has been updated';
@@ -59,10 +57,7 @@
             if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
                 $products = $stmt->fetch(PDO::FETCH_ASSOC);
             }
-           
-            
-            
-            
+                      
            ?>
         
         
@@ -81,7 +76,7 @@
             <br />
             Price: <input type="text" name="price" value="<?php echo $products['price'] ?>"/>
             <br />
-            <?php echo $products['image'] ?>
+            Image: <input name="upfile" type="file" value="<?php echo $products['image'] ?>" />
             <br />
             
             <!-- for each category, pull category id; input category (JOIN TABLES) -->
@@ -92,7 +87,6 @@
             </select>
             <br />
             <input type="hidden" name="product_id" value="<?php echo $product_id ?>" />
-            <input type="hidden" name="image" value="<?php echo $products ['image'] ?>" />
             <input type="submit" value="Submit" />            
         </form>
         

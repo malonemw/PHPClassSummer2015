@@ -23,8 +23,11 @@
             
         </tr>    
     <?php endforeach; ?>   
+        
 
 </table>
+<a href="../site/checkout.php"> Proceed to Checkout </a>
+<!--<input type="button" href="../site/checkout.php" value="Proceed to Checkout" />-->
  <?php else: ?>       
         <h2>No Products Found</h2>
 <?php endif; ?>

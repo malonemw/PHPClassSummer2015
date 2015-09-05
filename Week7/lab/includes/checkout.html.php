@@ -3,8 +3,10 @@
 
     <?php foreach ($checkoutProducts as $row): ?>
         <tr>            
+            <td><?php echo $row['image']; ?></td>
             <td><?php echo $row['product']; ?></td>
             <td><?php echo $row['price']; ?></td>
+            <?php $total += $row['price'];?>
         </tr>    
     <?php endforeach; ?>   
 

@@ -8,7 +8,7 @@
         
         <h1>Welcome to My Shopping Site</h1>
         
-        <a href="site/">Enter Site</a> | <a href="admin/">Admin Login</a>
+        <a href="./site/index.php">Enter Site</a> | <a href="admin/">Admin Login</a>
         
     </body>
 </html>
