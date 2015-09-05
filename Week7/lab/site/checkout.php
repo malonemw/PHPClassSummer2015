@@ -24,9 +24,10 @@
             foreach ($items as $id) {
                 $checkoutProducts[] = getProduct($id);
             }
+            ?>
+            <h1> Your Cart </h1>
             
-            
-            include '../includes/checkout.html.php';
-        ?>
+            <?php include '../includes/checkout.html.php';        ?>
+       
     </body>
 </html>

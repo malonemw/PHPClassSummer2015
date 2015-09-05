@@ -27,14 +27,19 @@
                 addToCart($productID);
                 
             }
-                  
+            
+            if $action === 'clear')
            
             include_once '../includes/categories.html.php';
             include_once '../includes/products.html.php';
             
+
             
-            
+            // add button with action 
         ?>
+        <input type="submit" value="Clear Cart"
+        <input type="hidden" name="action" value="clearCart"/>
+        <a href="../site/checkout.php"> Proceed to Checkout </a>
         
     </body>
 </html>
