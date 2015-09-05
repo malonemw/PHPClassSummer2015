@@ -25,7 +25,7 @@
             if (isPostRequest()){
             $category_id = filter_input(INPUT_POST, 'category_id');
             $category = filter_input(INPUT_POST, 'category');
-            var_dump($category);
+            //var_dump($category);
             $db2 = dbconnect();
                 
             $stmt2 = $db2->prepare("UPDATE categories SET category = :category WHERE category_id = :category_id");
@@ -52,14 +52,7 @@
             }
            ?>
         
-        <?php    
-        $action = filter_input(INPUT_POST, 'action');
         
-        if ($action === 'submit'){
-                
-        }
-
-        ?>
         
         <?php include '../../includes/results.html.php'; ?>
         
