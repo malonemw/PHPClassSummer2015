@@ -29,7 +29,7 @@
             
             
             if ( isset($_SESSION['isValidUser']) &&  $_SESSION['isValidUser'] === true ) {
-                include '../includes/admin-links.html.php';
+                echo '../includes/admin-links.html;';
             }
             else {
                 include '../includes/loginform.html.php'; 
