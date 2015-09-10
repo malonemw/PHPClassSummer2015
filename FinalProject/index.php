@@ -5,42 +5,10 @@
         <title></title>
     </head>
     <body>
-        <h1>stuff</h1>
-        <?php
-        echo 'Welcome to the Book of Addresses';
-            require_once 'includes/session-start.req-inc.php';
-            
-            include_once 'functions/dbconnect.php';
-            include_once 'functions/login-function.php';
-            include_once 'functions/until.php';
         
-            
-            if ( isPostRequest() ) {
-                
-                $email = filter_input(INPUT_POST, 'email');
-                $password = filter_input(INPUT_POST, 'pass');
-                
-                if ( isValidUser($email, $password) ) {
-                    $_SESSION['isValidUser'] = true;                    
-                } else {
-                    $results = 'Sorry please try again';
-                }
-               
-            }
-            
-            
-            if ( isset($_SESSION['isValidUser']) &&  $_SESSION['isValidUser'] === true ) {
-                echo '/includes/admin-links.html;';
-            }
-            else {
-                include 'includes/loginform.html.php'; 
-            }
+        <h1>Welcome to My Shopping Site</h1>
         
-         
-            
-        ?>
-        
-        <?php include 'includes/results.html.php'; ?>        
+        <a href="./site/index.php">Enter Site</a> | <a href="./logins/create-user.php">Create an Account</a>
         
     </body>
 </html>
