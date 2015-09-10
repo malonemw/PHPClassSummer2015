@@ -8,7 +8,7 @@
  * image
  */
 function createUser($email, $password) {
-    var_dump($email, $password);
+   
     $db = dbconnect();
     $stmt = $db->prepare("INSERT INTO users SET email = :email, password = :password, created = NOW()");
     $binds = array(
