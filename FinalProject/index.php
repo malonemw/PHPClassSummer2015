@@ -6,7 +6,7 @@
     </head>
     <body>
         
-        <h1>Welcome to My Shopping Site</h1>
+        <h1>Welcome to the Book of Addresses</h1>
         
         <a href="./site/index.php">Enter Site</a> | <a href="./logins/create-user.php">Create an Account</a>
         

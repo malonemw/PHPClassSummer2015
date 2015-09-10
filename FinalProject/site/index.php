@@ -7,11 +7,11 @@
     <body>
         <h1>Welcome to the Book of Addresses</h1>
         <?php
-            require_once 'includes/session-start.req-inc.php';
+            require_once '../includes/session-start.req-inc.php';
             
-            include_once 'functions/dbconnect.php';
-            include_once 'functions/login-function.php';
-            include_once 'functions/until.php';
+            include_once '../functions/dbconnect.php';
+            include_once '../functions/login-function.php';
+            include_once '../functions/until.php';
         
             
             if ( isPostRequest() ) {
@@ -29,17 +29,17 @@
             
             
             if ( isset($_SESSION['isValidUser']) &&  $_SESSION['isValidUser'] === true ) {
-                include 'includes/site-links.html;';
+                include '../includes/site-links.html.php';
             }
             else {
-                include 'includes/loginform.html.php'; 
+                include '../includes/loginform.html.php'; 
             }
         
          
             
         ?>
         
-        <?php include 'includes/results.html.php'; ?>        
+        <?php include '../includes/results.html.php'; ?>        
         
     </body>
 </html>
