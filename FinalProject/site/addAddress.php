@@ -20,7 +20,7 @@
         
         $user_id = $_SESSION['user_id'];
         var_dump($user_id);
-        //$groups = getAddressGroup();
+        $groups = getAddressGroup();
         
         
         if ( isPostRequest() ) {
@@ -100,12 +100,12 @@
             <br />            
             Website : <input type="text" name="website" value="" /> 
             <br />            
-            Birthday : <input type="text" name="birthday" value="" /> 
+            Birthday : <input type="date" name="birthday" value="" /> 
             <br />            
              Image: <input name="upfile" type="file" />
              <br />
             <input type="submit" value="Submit" />
-            <input type="hidden" name="user_id" value="<?php echo $user_id ?>" />
+            
         </form>
         
         

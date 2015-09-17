@@ -4,7 +4,7 @@
  * product_id
  * category_id
  * product
- * price
+ * pd876rice
  * image
  */
 

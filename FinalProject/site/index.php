@@ -20,7 +20,7 @@
                 $password = filter_input(INPUT_POST, 'pass');
                 
                 if ( isValidUser($email, $password) ) {
-                    $_SESSION['user_id'] = getUser($email, $password);                    
+                    $_SESSION['user_id'] = getUserID($email, $password);                    
                 } else {
                     $results = 'Sorry please try again';
                 }
