@@ -7,10 +7,13 @@
  * price
  * image
  */
-function createAddress($fullname, $email, $address, $phone, $website, $birthday, $image) {
+
+    
+
+function createAddress($fullname, $email, $address, $phone, $website, $birthday, $image, $user_id) {
     
     $db = dbconnect();
-    $stmt = $db->prepare("INSERT INTO address SET fullname = :fullname, email = :email, address = :address, phone = :phone, website = :website, birthday = :birthday, image = :image" );
+    $stmt = $db->prepare("INSERT INTO address SET fullname = :fullname, email = :email, address = :address, phone = :phone, website = :website, birthday = :birthday, image = :image, user_id = :user_id " );
     $binds = array(
         ":fullname" => $fullname,
         ":email" => $email,
@@ -18,8 +21,10 @@ function createAddress($fullname, $email, $address, $phone, $website, $birthday,
         ":phone" => $phone,
         ":website" => $website,
         ":birthday" => $birthday,
-        ":image" => $image
+        ":image" => $image,
+        ":user_id" => $user_id
     );
+    var_dump($fullname,$email,$address,$birthday,$phone,$website,$image, $user_id);
     if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
         return true;
     }
@@ -36,6 +41,5 @@ function isValidPassword($password) {
     }
     return true;    
 }
-
 
 ?>

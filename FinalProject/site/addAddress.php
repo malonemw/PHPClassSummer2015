@@ -11,13 +11,15 @@
          require_once '../includes/access-required.html.php';
          
         include_once '../functions/dbconnect.php';
-        //include_once '../../functions/category-functions.php';
-        //include_once '../../functions/products-functions.php';
+        include_once '../functions/address-functions.php';
+        include_once '../functions/image-functions.php';
+        include_once '../functions/login-function.php';
         include_once '../functions/until.php';
         
         
         
-        
+        $user_id = $_SESSION['user_id'];
+        var_dump($user_id);
         //$categories = getAllCategories();
         
         
@@ -29,7 +31,7 @@
             $phone = filter_input(INPUT_POST, 'phone');
             $website = filter_input(INPUT_POST, 'website');
             $birthday = filter_input(INPUT_POST, 'birthday');
-            $image = uploadProductImage();
+            $image = uploadImage();
                         
             $errors = array();
             
@@ -46,10 +48,12 @@
             }
             // want to check for correct files before uploading image
             if ( count($errors) == 0 ) {
+                var_dump($fullname,$email,$address,$birthday,$phone,$website,$image);
                 
-                if ( createAddress($fullname, $email, $address, $phone, $website, $birthday, $image ) ) {
+                if ( createAddress($fullname, $email, $address, $phone, $website, $birthday, $image, $user_id ) ) {
                     $results = 'Product Added';
                 } else {
+                    
                     $results = 'Product was not Added';
                 }
                 
@@ -61,7 +65,7 @@
         
         ?>
         
-        <h1>Add Product</h1>
+        <h1>Add Address</h1>
         
         <?php if ( isset($errors) && count($errors) > 0 ) : ?>
             <ul>
@@ -72,28 +76,26 @@
         <?php endif; ?>
         
         
-        <?php include '../../includes/results.html.php'; ?>
+        <?php include '../includes/results.html.php'; ?>
                
         <form method="post" action="#" enctype="multipart/form-data">
             
-            Category:
-            <select name="category_id">
-            <?php foreach ($categories as $row): ?>
-                <option value="<?php echo $row['category_id']; ?>">
-                    <?php echo $row['category']; ?>
-                </option>
-            <?php endforeach; ?>
-            </select>
+            Address: <input type ="text" name ="address" value="" />
             <br />
-            
-            
-            Product Name : <input type="text" name="product" value="" /> 
+            Full Name : <input type="text" name="fullname" value="" /> 
             <br />
-            Price : <input type="text" name="price" value="" /> 
+            Email : <input type="email" name="email" value="" /> 
+            <br />            
+            Phone : <input type="text" name="phone" value="" /> 
+            <br />            
+            Website : <input type="text" name="website" value="" /> 
+            <br />            
+            Birthday : <input type="text" name="birthday" value="" /> 
             <br />            
              Image: <input name="upfile" type="file" />
              <br />
             <input type="submit" value="Submit" />
+            <input type="hidden" name="user_id" value="<?php echo $user_id ?>" />
         </form>
         
         
