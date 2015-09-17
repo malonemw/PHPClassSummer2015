@@ -27,7 +27,9 @@
         <p><a href="addAddress.php">Add a New Address</a></p>
         <?php foreach ($result as $row): ?>
                 <tr>
-                    <td><?php echo $row['address_id']; ?></td>                    
+                    <td><?php echo $row['address']; ?></td>                    
+                    <td><?php echo $row['fullname']; ?></td>                    
+                    <td><a href="fullView.php?id=<?php echo $row['address_id']; ?>"> View More </a></td> 
                     <td><a href="update.php?id=<?php echo $row['address_id']; ?>"> Update </a></td> 
                     <td><a href="delete.php?id=<?php echo $row['address_id']; ?>"> Delete </a></td>
                     </br>

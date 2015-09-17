@@ -20,7 +20,6 @@
                 $password = filter_input(INPUT_POST, 'pass');
                 
                 if ( isValidUser($email, $password) ) {
-                    $_SESSION['isValidUser'] = true;
                     $_SESSION['user_id'] = getUser($email, $password);                    
                 } else {
                     $results = 'Sorry please try again';
@@ -29,7 +28,7 @@
             }
             
             
-            if ( isset($_SESSION['isValidUser']) &&  $_SESSION['isValidUser'] === true ) {
+            if ( isset($_SESSION['user_id']) && intval($_SESSION['user_id']) > 0 ) {
                 include '../includes/site-links.html.php';
             }
             else {

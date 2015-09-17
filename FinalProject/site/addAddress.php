@@ -20,7 +20,7 @@
         
         $user_id = $_SESSION['user_id'];
         var_dump($user_id);
-        //$categories = getAllCategories();
+        //$groups = getAddressGroup();
         
         
         if ( isPostRequest() ) {
@@ -29,6 +29,7 @@
             $email = filter_input(INPUT_POST, 'email');
             $address = filter_input(INPUT_POST, 'address');
             $phone = filter_input(INPUT_POST, 'phone');
+            $group_id = filter_input(INPUT_POST, 'address_group_id');
             $website = filter_input(INPUT_POST, 'website');
             $birthday = filter_input(INPUT_POST, 'birthday');
             $image = uploadImage();
@@ -50,7 +51,7 @@
             if ( count($errors) == 0 ) {
                 var_dump($fullname,$email,$address,$birthday,$phone,$website,$image);
                 
-                if ( createAddress($fullname, $email, $address, $phone, $website, $birthday, $image, $user_id ) ) {
+                if ( createAddress($fullname, $email, $address, $phone, $group_id, $website, $birthday, $image, $user_id ) ) {
                     $results = 'Product Added';
                 } else {
                     
@@ -87,6 +88,15 @@
             Email : <input type="email" name="email" value="" /> 
             <br />            
             Phone : <input type="text" name="phone" value="" /> 
+            <br />
+            <!-- NEED TO DO DROPDOWN FOR GROUPS (Select from address-groups table)-->
+            Group : <select name="address_group_id">
+            <?php foreach ($groups as $row): ?>
+                <option value="<?php echo $row['address_group_id']; ?>">
+                    <?php echo $row['address_group']; ?>
+                </option>
+            <?php endforeach; ?>
+            </select>
             <br />            
             Website : <input type="text" name="website" value="" /> 
             <br />            
