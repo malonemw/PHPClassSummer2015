@@ -48,6 +48,31 @@ function getAddressGroup() {
     
 }
 
+function updateAddress($fullname, $email, $address, $phone, $group_id, $website, $birthday, $image, $user_id) {
+    $db = dbconnect();
+    $stmt = $db->prepare("UPDATE address SET fullname = :fullname, email = :email, address = :address, phone = :phone, address_group_id = :address_group_id, website = :website, birthday = :birthday, image = :image, user_id = :user_id " );
+            $binds = array(
+            ":fullname" => $fullname,
+            ":email" => $email,
+            ":address" => $address,
+            ":phone" => $phone,
+            ":address_group_id" => $group_id,
+            ":website" => $website,
+            ":birthday" => $birthday,
+            ":image" => $image,
+            ":user_id" => $user_id
+        );
+        
+    if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+        return true;
+    }
+    else{ 
+    return false;
+    }
+    
+    
+}
+
 function isValidPassword($password) {
     if ( strlen($password) < 4 ) {
         return false;

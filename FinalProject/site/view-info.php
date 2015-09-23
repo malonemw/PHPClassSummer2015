@@ -13,6 +13,8 @@
             include_once '../functions/dbconnect.php';
             include_once '../functions/until.php';
             
+            $address_id = filter_input(INPUT_GET, 'id');
+            
             $db = dbconnect();
              
             $stmt = $db->prepare("SELECT * FROM address");

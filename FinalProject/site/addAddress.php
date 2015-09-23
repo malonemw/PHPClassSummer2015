@@ -52,10 +52,10 @@
                 var_dump($fullname,$email,$address,$birthday,$phone,$website,$image);
                 
                 if ( createAddress($fullname, $email, $address, $phone, $group_id, $website, $birthday, $image, $user_id ) ) {
-                    $results = 'Product Added';
+                    $results = 'Contact Added';
                 } else {
                     
-                    $results = 'Product was not Added';
+                    $results = 'Contact was not Added';
                 }
                 
             }
