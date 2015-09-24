@@ -32,7 +32,7 @@
         
         ?>
         
-        <h1> Record <?php echo $product_id; ?> Has 
+        <h1> Record <?php echo $address_id; ?> Has 
             <?php if ( !$isDeleted ): ?>Not<?php endif; ?> 
             Been Deleted
         </h1>

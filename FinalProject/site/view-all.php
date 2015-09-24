@@ -14,9 +14,14 @@
             include_once '../functions/until.php';
             
             $db = dbconnect();
-             
-            $stmt = $db->prepare("SELECT * FROM address");
-           
+            $id = $_SESSION['user_id'];
+            
+            $stmt = $db->prepare("SELECT * FROM address WHERE user_id = :user_id");
+            $binds = array(
+            ":user_id" => $id
+            );
+            $stmt->execute($binds);
+          
             $result = array();
             if ($stmt->execute() && $stmt->rowCount() > 0) {
                 $result = $stmt->fetchALL(PDO::FETCH_ASSOC);
@@ -34,7 +39,7 @@
                     <td><a href="delete.php?id=<?php echo $row['address_id']; ?>"> Delete </a></td>
                     </br>
                 </tr>
-              
+            
             <?php endforeach; ?>
     </body>
 </html>

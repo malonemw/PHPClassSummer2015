@@ -21,6 +21,15 @@
         $groups = getAddressGroup();
         $db = dbconnect();
         
+        $fullname="";
+        $email="";
+        $address="";
+        $phone="";
+        $group_id="";
+        $website="";
+        $birthday="";
+        $image="";
+        
         if ( isPostRequest() ) {
                         
             $fullname = filter_input(INPUT_POST, 'fullname');

@@ -4,4 +4,5 @@
 <ul>
     <li><a href="../site/view-all.php">View My Addresses</a></li>
     <li><a href="../site/addAddress.php">Add A New Address</a></li>
+    <li><a href="../functions/logout.php">Logout</a></li>
 </ul>

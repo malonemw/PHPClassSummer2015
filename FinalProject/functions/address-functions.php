@@ -48,6 +48,18 @@ function getAddressGroup() {
     
 }
 
+function getAddress() {
+    $db = dbconnect();
+    $stmt = $db->prepare("SELECT * FROM address WHERE user_id = :user_id");
+            $binds = array(
+            ":user_id" => $id
+            );
+            $stmt->execute($binds);
+            
+            //return something
+    
+}
+
 function updateAddress($fullname, $email, $address, $phone, $group_id, $website, $birthday, $image, $user_id) {
     $db = dbconnect();
     $stmt = $db->prepare("UPDATE address SET fullname = :fullname, email = :email, address = :address, phone = :phone, address_group_id = :address_group_id, website = :website, birthday = :birthday, image = :image, user_id = :user_id " );
