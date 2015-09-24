@@ -17,7 +17,7 @@
             
            $product_id = filter_input(INPUT_GET, 'id');
            $categoriesdb = getAllCategories(); 
-           $db = dbconnect();
+           
            
            
            if (isPostRequest()){
